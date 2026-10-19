@@ -1,0 +1,150 @@
+:root { --night: #253b32; --light-night: #385247; --glow: #f2ca80; --brown: #362715; }
+.catnap-hero { position: relative; isolation: isolate; overflow: hidden; }
+.hero-demo-link { display: inline-flex; gap: .6rem; align-items: center; padding: .48rem .82rem; border: 1px solid #ac875e; border-radius: 2rem; margin: .73rem 0 0 .25rem; color: #533516; font-weight: 730; background: #faf0dd; text-decoration: none; }
+.hero-demo-link:hover { background: #ecd6b4; }
+.room-cat { display: grid; isolation: isolate; width: clamp(4.2rem, 12vw, 8.7rem); aspect-ratio: 156 / 136; pointer-events: none; }
+.room-cat img { display: block; width: 100%; height: auto; grid-area: 1 / 1; }
+.room-cat img:not(:first-child) { opacity: 0; }
+.room-cat--groom { position: absolute; right: calc(100% - 1.6rem); bottom: 0; transform: rotate(-8deg); width: clamp(4.3rem, 8vw, 6.8rem); z-index: 1; }
+.motion-enabled .room-cat--groom img:first-child { animation: groom-away 7s steps(1,end) infinite 1s; }
+.motion-enabled .room-cat--groom img:nth-child(2) { animation: groom-in 7s steps(1,end) infinite 1s; }
+@keyframes groom-away { 0%, 77%, 87%, 96% { opacity:1; } 81%, 92% { opacity:0; } }
+@keyframes groom-in { 0%, 77%, 87%, 96% { opacity:0; } 81%, 92% { opacity:1; } }
+.room-cat--walk { position: absolute; right: clamp(.75rem,5vw,3.6rem); bottom: -.55rem; width: clamp(4.3rem,11vw,7.2rem); }
+.motion-enabled .room-cat--walk { animation: stroll 13s ease-in-out infinite 3s; }
+.motion-enabled .room-cat--walk img:first-child { animation: resting-frame 13s steps(1,end) infinite 3s; }
+.motion-enabled .room-cat--walk img:nth-child(2) { animation: walking-one 13s steps(1,end) infinite 3s; }
+.motion-enabled .room-cat--walk img:nth-child(3) { animation: walking-two 13s steps(1,end) infinite 3s; }
+@keyframes stroll { 0%, 12% { transform: translateX(0); } 44%, 77% { transform: translateX(-1.4rem); } 96%,100% { transform: translateX(0); } }
+@keyframes resting-frame { 0%, 44%, 77%, 96% { opacity: 1; } 12%, 79% { opacity:0; } }
+@keyframes walking-one { 0%, 18%, 29%, 40%, 44%, 77%, 84%, 93%, 96% { opacity:0; } 12%, 24%, 34%, 42%, 79%, 89% { opacity:1; } }
+@keyframes walking-two { 0%, 24%, 34%, 42%, 44%, 77%, 89%, 96% { opacity:0; } 18%, 29%, 40%, 84%, 93% { opacity:1; } }
+.room-cat--sleep { width: clamp(4rem, 10vw, 7.2rem); position: absolute; top: -.75rem; right: 0; transform-origin: 55% 80%; }
+.motion-enabled .room-cat--sleep { animation: breath 4.8s ease-in-out infinite; }
+@keyframes breath { 50% { transform: scaleY(.974); } }
+.catnap-story .story-copy { position: relative; padding-right: clamp(4.7rem,10vw,6.2rem); }
+.hero-guide-link { display:block; width:max-content; margin-top:.2rem; font-size:.88rem; }
+.native-scene { margin-top:clamp(1rem,3vw,2.3rem); padding:clamp(1rem,4vw,2.8rem); background:radial-gradient(ellipse at 64% 25%,#476358 0%,var(--night) 64%); border:1px solid #53665c; border-radius:1.6rem; color:#fff5df; }
+.scene-intro { position:relative; padding:0 clamp(4.5rem,13vw,8.7rem) .62rem 0; }
+.scene-intro h2 { margin:0 0 .52rem; font-size:clamp(1.75rem,5vw,3.45rem); line-height:1.14; letter-spacing:-.04em; text-wrap:balance; }
+.scene-intro p:not(.native-kicker), .scene-beat p:not(.beat-number) { color:#f7e1bd; }
+.native-kicker, .beat-number { color:#ffd893; font-size:.78rem; font-weight:790; letter-spacing:.105em; }
+.native-kicker span { font-size:.57rem; vertical-align:.12em; margin-right:.24rem; }
+.scene-track { display:block; }
+.scene-view { width:min(100%,calc((100svh - 8.1rem)*.825)); margin:0 auto; position:relative; align-self:start; z-index:2; }
+.scene-room { position:relative; overflow:hidden; isolation:isolate; aspect-ratio:1206 / 1462; border-radius:.72rem; outline:1px solid #ebce99; box-shadow:0 .75rem 2rem #10201aaa; background:#d8c3a2; }
+.scene-backdrop, .scene-piece { display:block; position:absolute; max-width:none; height:auto; margin:0; pointer-events:none; }
+.scene-backdrop { inset:0; width:100%; }
+.scene-shelf { left:61.8574%; top:57.1819%; width:17.0813%; }
+.scene-piano { left:5.97015%; top:61.4911%; width:30.0995%; }
+.scene-clear { display:none; position:absolute; bottom:6%; right:4%; background:#294638; color:#fff4da; padding:.3rem .62rem; border-radius:2rem; border:1px solid #edd398; font-weight:770; font-size:.85rem; }
+.scene-room[data-complete="true"] .scene-clear { display:inline-block; }
+.scene-controls[hidden], .scene-manual[hidden], .scene-toggle[hidden] { display:none; }
+.scene-controls { display:flex; justify-content:center; align-items:center; gap:.28rem; flex-wrap:wrap; margin-top:.38rem; }
+.scene-controls button { color:#3a2914; background:#f3dfb6; border:1px solid #e8c784; border-radius:1rem; min-height:44px; font:inherit; font-weight:730; font-size:.77rem; padding:.29rem .58rem; cursor:pointer; }
+.scene-controls button:disabled { opacity:.62; cursor:default; }
+.scene-controls button:focus-visible { outline:3px solid #ffe0a0; outline-offset:.13rem; }
+.scene-manual { display:flex; align-items:center; gap:.35rem; }
+.scene-manual span { font-size:.78rem; }
+.scene-view figcaption { text-align:center; margin:.38rem 0 .13rem; font-size:.7rem; line-height:1.36; color:#f7e1bd; }
+.scene-steps { padding-top: max(1.25rem,7svh); }
+.scene-beat { min-height: max(15.5rem,43svh); max-width:27rem; margin:0 auto; padding:.86rem .22rem; border-top:1px solid #839785; }
+.scene-beat h3, .guide-cards h3 { margin:0 0 .35rem; font-size:clamp(1.17rem,2.3vw,1.65rem); line-height:1.27; }
+.scene-beat p { max-width:33ch; }
+.beat-number { margin:0 0 .4rem; }
+.play-guide { margin-top:clamp(2.3rem,7vw,5rem); }
+.play-guide h2 { font-size:clamp(1.45rem,4vw,2.6rem); }
+.guide-cards { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:.65rem; margin-top:1.05rem; }
+.guide-cards article { padding:clamp(.9rem,2vw,1.35rem); border:1px solid #c8b293; border-radius:1rem; background:#fff8eb; color:#3c2b21; }
+.guide-cards p { margin:.65rem 0 .1rem; font-size:.93rem; }
+.screen-reader-only { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+@media(max-width:48rem) {
+ .scene-view { width:min(100%,calc((62svh - 5.4rem)*.825)); padding:.08rem 0 .25rem; background:#2d4338; box-shadow:0 .22rem .35rem #263b31; border-radius:.72rem; }
+ .scene-steps { padding-top:1.35rem; }
+ .scene-beat { min-height:max(12rem,30svh); }
+ .scene-intro { padding-right:3.25rem; }
+ .scene-intro .room-cat--walk { width:3.75rem; right:-.35rem; bottom:.42rem; }
+ .guide-cards { grid-template-columns:1fr; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .room-cat, .room-cat img { animation:none !important; }
+ .scene-view { background:transparent; box-shadow:none; }
+ .scene-steps { padding-top:1.1rem; }
+ .scene-beat { min-height:0; padding-bottom:1rem; }
+}
+html:not(.motion-enabled) .scene-beat { min-height:0; }
+.guide-basics { margin:.65rem 0 1.45rem; padding:.7rem .9rem; background:#f9edda; border-left:3px solid #ab7651; border-radius:.27rem; color:#49311d; }
+.guide-subtitle { margin:0; font-size:clamp(1.02rem,2.3vw,1.3rem); }
+/* Keep the reading card in the same panel while the board demonstrates a move. */
+.scene-view { position:relative; width:min(100%,31rem,calc((100svh - 10rem)*.825)); padding:.25rem .27rem .42rem; background:#2d4338; border-radius:.85rem; }
+.scene-steps { padding:.6rem 0 0; min-height:7.4rem; }
+.scene-beat { min-height:0; border:1px solid #9cac97; background:#f8ecce; color:#3a2b18; padding:.57rem .75rem; max-width:none; margin:0; border-radius:.65rem; }
+.scene-beat[hidden] { display:none; }
+.scene-beat h3 { color:#2a3e33; margin:0 0 .18rem; font-size:clamp(1.05rem,2vw,1.4rem); }
+.scene-beat p:not(.beat-number) { color:#493722; margin:0; line-height:1.42; font-size:clamp(.87rem,2vw,1rem); max-width:none; }
+.scene-beat .beat-number { color:#79552c; margin:0 0 .23rem; line-height:1.1; }
+html:not(.motion-enabled) .scene-beat + .scene-beat { margin-top:.5rem; }
+.motion-enabled .room-cat--groom { animation:cat-sway 2.4s ease-in-out infinite alternate; }
+.motion-enabled .room-cat--groom img:first-child { animation:cat-first-frame .8s step-end infinite; }
+.motion-enabled .room-cat--groom img:nth-child(2) { animation:cat-second-frame .8s step-end infinite; }
+.motion-enabled .room-cat--walk { animation:cat-walk-loop 3.7s linear infinite alternate; }
+.motion-enabled .room-cat--walk img:first-child { animation:none; opacity:0; }
+.motion-enabled .room-cat--walk img:nth-child(2) { animation:cat-first-frame .47s step-end infinite; }
+.motion-enabled .room-cat--walk img:nth-child(3) { animation:cat-second-frame .47s step-end infinite; }
+.motion-enabled .room-cat--sleep { animation:breath 2.8s ease-in-out infinite; }
+@keyframes cat-sway { from {transform:rotate(-6deg) translateY(0)} to {transform:rotate(-2deg) translateY(-.14rem)} }
+@keyframes cat-walk-loop { from {transform:translateX(.2rem)} to {transform:translateX(-1.12rem)} }
+@keyframes cat-first-frame { from {opacity:1} 50% {opacity:0} }
+@keyframes cat-second-frame { from {opacity:0} 50% {opacity:1} }
+@media(max-width:48rem) {
+ .scene-view { width:min(100%,calc((100svh - 10.2rem)*.825)); max-width:29rem; }
+ .scene-steps { min-height:7.6rem; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .motion-enabled .room-cat--walk img:first-child { opacity:1; }
+ .motion-enabled .room-cat--walk img:not(:first-child) { opacity:0; }
+}
+/* Side by side when a landscape viewport cannot fit the board over its card. */
+@media (min-width:35rem) and (min-aspect-ratio:6/5) and (max-height:760px) {
+ .scene-view {
+   display:grid;
+   grid-template-columns:minmax(0, .85fr) minmax(0, 1.15fr);
+   grid-template-areas:"room ." "room card" "room controls";
+   grid-template-rows:1fr auto 1fr;
+   align-items:center;
+   align-content:start;
+   gap:.35rem clamp(1rem,3vw,1.85rem);
+   width:min(100%,49rem);
+ }
+ .scene-room {
+   grid-area:room;
+   width:min(100%,calc((min(100svh,100dvh) - 4rem)*.825));
+   justify-self:center;
+ }
+ .scene-steps { grid-area:card; min-height:0; padding:0; width:min(100%,23rem); justify-self:center; }
+ .scene-beat { padding:.45rem .55rem; }
+ .scene-view .scene-controls { grid-area:controls; margin:0; align-self:start; justify-self:center; background:var(--night); padding:.3rem .5rem; border-radius:.7rem; }
+ html:not(.motion-enabled) .scene-view { align-items:start; }
+}
+
+/* Keep the introduction and board panel visually distinct. */
+.native-scene { background:transparent; border:0; padding:0; color:#fff5df; }
+.scene-intro { background:radial-gradient(ellipse at 65% 25%,#476358 0%,var(--night) 68%); border:1px solid #53665c; border-radius:1rem; padding:clamp(.85rem,3vw,1.6rem) clamp(4.25rem,15vw,9rem) clamp(.67rem,2vw,1.3rem) clamp(.9rem,3vw,1.75rem); max-width:40rem; margin:0 auto .55rem; }
+.scene-intro .room-cat--walk { bottom:.25rem;right:.55rem; }
+.scene-view { border:1px solid #53665c; }
+ .motion-enabled .room-cat--sleep { animation:white-cat-sway 1.65s ease-in-out infinite alternate; }
+ .motion-enabled .room-cat--sleep img:first-child { animation:white-cat-start 2.8s step-end infinite; }
+ .motion-enabled .room-cat--sleep img:nth-child(2) { animation:white-cat-stretch 2.8s step-end infinite; }
+ .motion-enabled .room-cat--sleep img:nth-child(3) { animation:white-cat-rest 2.8s step-end infinite; }
+ @keyframes white-cat-sway { from {transform:translateY(.06rem) rotate(-3deg)} to {transform:translateY(-.34rem) rotate(4deg)} }
+ @keyframes white-cat-start { 0%,78% {opacity:1} 26% {opacity:0} }
+ @keyframes white-cat-stretch { 0%,65% {opacity:0} 26% {opacity:1} }
+ @keyframes white-cat-rest { 0%,78% {opacity:0} 65% {opacity:1} }
+ @media (prefers-reduced-motion:reduce) {
+   .motion-enabled .room-cat--sleep img:first-child { opacity:1; }
+   .motion-enabled .room-cat--sleep img:not(:first-child) { opacity:0; }
+ }
+@media (min-width:35rem) and (min-aspect-ratio:6/5) and (max-height:760px) {
+ .scene-view { background:transparent; box-shadow:none; border-color:transparent; padding:.45rem; }
+ .scene-room { outline:2px solid #394d41; box-shadow:0 0 0 .32rem #2d4338, 0 .42rem .85rem #263b3140; }
+}
